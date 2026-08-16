@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow & Beauty - Catálogo</title>
+    <!-- Fuentes de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #d4a373; 
+            --accent: #e07a5f;  
+            --bg-light: #fbf9f5; 
+            --text-dark: #2c2c2c;
+            --card-bg: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        body { 
+            background-color: var(--bg-light); 
+            color: var(--text-dark); 
+            line-height: 1.6; 
+            position: relative;
+            overflow-x: hidden;
+            background-image: radial-gradient(rgba(212, 163, 115, 0.12) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* DECORACIONES LATERALES FLOTANTES */
+        .side-decoration {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 140px;
+            pointer-events: none;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            opacity: 0.15;
+            transition: opacity 0.5s ease;
+        }
+
+        .side-left { left: 15px; }
+        .side-right { right: 15px; }
+
+        .side-item {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--primary);
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            padding: 2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .side-item::before {
+            content: '✦';
+            font-size: 0.8rem;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 163, 115, 0.18) 0%, rgba(251, 249, 245, 0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(224, 122, 95, 0.15) 0%, rgba(251, 249, 245, 0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* BARRA SUPERIOR */
+        .top-bar { background-color: #2c2c2c; color: #fff; text-align: center; padding: 0.6rem; font-size: 0.82rem; letter-spacing: 0.5px; position: relative; z-index: 2; }
+        .top-bar .whatsapp-line { margin-bottom: 0.15rem; }
+        .top-bar .whatsapp-line a { color: #25d366; text-decoration: none; font-weight: 600; transition: opacity 0.3s ease; }
+        .top-bar .whatsapp-line a:hover { opacity: 0.8; }
+        .top-bar .transfer-line { font-size: 0.78rem; opacity: 0.85; font-weight: 300; }
+
+        /* ENCABEZADO / HERO SECTION */
+        header { 
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(244,239,232,0.95) 100%); 
+            text-align: center; 
+            padding: 3.5rem 1rem 3rem; 
+            border-bottom: 1px solid rgba(212, 163, 115, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.01);
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 2.6rem; color: var(--text-dark); margin-bottom: 0.4rem; font-weight: 700; letter-spacing: 0.5px; }
+        header p { font-weight: 300; color: #666; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.2rem; position: relative; z-index: 2; }
+
+        /* BUSCADOR SOFISTICADO Y ACTUAL */
+        .search-container { 
+            display: flex; 
+            justify-content: center; 
+            margin-bottom: 2.5rem; 
+            position: relative;
+        }
+        
+        .search-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 620px;
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            border-radius: 999px;
+            border: 1px solid rgba(212, 163, 115, 0.25);
+            box-shadow: 0 12px 35px -8px rgba(212, 163, 115, 0.12), 0 2px 6px rgba(0,0,0,0.02);
+            transition: var(--transition);
+        }
+
+        .search-wrapper:hover {
+            border-color: rgba(212, 163, 115, 0.6);
+            box-shadow: 0 16px 40px -8px rgba(212, 163, 115, 0.2), 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        .search-wrapper:focus-within {
+            border-color: var(--primary);
+            background: #ffffff;
+            box-shadow: 0 20px 45px -8px rgba(212, 163, 115, 0.25), 0 0 0 3px rgba(212, 163, 115, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .search-icon-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 20px;
+            color: var(--primary);
+            font-size: 1rem;
+            pointer-events: none;
+        }
+
+        .search-input { 
+            width: 100%; 
+            padding: 1rem 1rem 1rem 12px; 
+            border: none; 
+            font-size: 0.95rem; 
+            outline: none; 
+            background: transparent; 
+            color: var(--text-dark);
+            font-weight: 400;
+        }
+
+        .search-input::placeholder {
+            color: #9a9590;
+            font-weight: 300;
+        }
+
+        .search-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-right: 8px;
+        }
+
+        .clear-search-btn {
+            background: #f4efe8;
+            border: none;
+            color: #777;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .clear-search-btn:hover {
+            background-color: var(--primary);
+            color: #fff;
+        }
+
+        .search-input:not(:placeholder-shown) ~ .search-actions .clear-search-btn {
+            display: flex;
+        }
+
+        .search-submit-btn {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 0.65rem 1.25rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+        }
+
+        .search-submit-btn:hover {
+            background-color: #c29162;
+            transform: scale(1.02);
+        }
+
+        /* FILTROS DE CATEGORÍA */
+        .categories-filter {
+            display: flex;
+            justify-content: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.8rem;
+        }
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #e6ded4;
+            padding: 0.4rem 1.1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #666;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 163, 115, 0.3);
+        }
+
+        /* GRILLA Y ANIMACIÓN DE ENTRADA */
+        .grid-productos { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2rem; }
+
+        @keyframes fadeInUpt {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card { 
+            background: var(--card-bg); 
+            border-radius: 18px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
+            transition: var(--transition); 
+            display: flex; 
+            flex-direction: column; 
+            position: relative; 
+            cursor: pointer; 
+            border: 1px solid rgba(0,0,0,0.04);
+            animation: fadeInUpt 0.6s ease forwards;
+        }
+        .card:hover { 
+            transform: translateY(-6px); 
+            box-shadow: 0 18px 40px rgba(0,0,0,0.07); 
+            border-color: rgba(212, 163, 115, 0.35);
+        }
+        
+        .badge { position: absolute; top: 14px; left: 14px; background-color: var(--accent); color: white; padding: 0.25rem 0.8rem; border-radius: 14px; font-size: 0.72rem; font-weight: 600; z-index: 10; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(224, 122, 95, 0.3); }
+        
+        .img-container { width: 100%; height: 240px; overflow: hidden; background-color: #f4efe8; position: relative; }
+        .card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .card:hover img { transform: scale(1.08); }
+
+        .card-body { padding: 1.4rem; display: flex; flex-direction: column; flex-grow: 1; }
+        .card-categoria { font-size: 0.72rem; text-transform: uppercase; color: var(--primary); font-weight: 600; margin-bottom: 0.4rem; letter-spacing: 1px; }
+        .card-titulo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text-dark); margin-bottom: 0.5rem; }
+        .card-descripcion { font-size: 0.84rem; color: #777; margin-bottom: 1.2rem; flex-grow: 1; line-height: 1.5; }
+        .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.9rem; border-top: 1px solid #f7f3ee; }
+        
+        .card-precio { font-size: 1.15rem; font-weight: 700; color: var(--text-dark); font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.3px; }
+        
+        .btn-ver { background-color: #f7f3ee; color: #444; border: none; padding: 0.45rem 1rem; border-radius: 20px; font-size: 0.78rem; font-weight: 600; transition: var(--transition); cursor: pointer; }
+        .card:hover .btn-ver { background-color: var(--primary); color: #fff; box-shadow: 0 4px 12px rgba(212, 163, 115, 0.3); }
+
+        /* MODAL */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 1rem; }
+        .modal-overlay.active { display: flex; }
+        .modal-container { background: #fff; width: 100%; max-width: 850px; border-radius: 24px; position: relative; display: flex; flex-direction: column; max-height: 90vh; box-shadow: 0 25px 50px rgba(0,0,0,0.15); overflow: hidden; animation: fadeInUpt 0.4s ease forwards; }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 2rem; border: none; background: transparent; cursor: pointer; z-index: 10; color: #555; transition: var(--transition); }
+        .close-btn:hover { color: var(--primary); transform: rotate(90deg); }
+        .modal-content { display: grid; grid-template-columns: 1fr 1fr; overflow-y: auto; }
+        
+        .modal-gallery { padding: 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 12px; background-color: #fcf9f5; }
+        .main-img { width: 100%; height: 300px; object-fit: cover; border-radius: 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); transition: opacity 0.3s ease; }
+        .thumbnails-container { display: flex; gap: 10px; justify-content: center; width: 100%; flex-wrap: wrap; }
+        .thumb-img { width: 60px; height: 60px; object-fit: cover; border-radius: 10px; cursor: pointer; opacity: 0.6; border: 2px solid transparent; transition: var(--transition); }
+        .thumb-img:hover, .thumb-img.active { opacity: 1; border-color: var(--primary); transform: scale(1.06); box-shadow: 0 4px 10px rgba(212, 163, 115, 0.3); }
+
+        .modal-info { padding: 2rem 1.8rem; display: flex; flex-direction: column; justify-content: center; }
+        
+        .modal-precio { font-size: 1.35rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem; font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.3px; }
+
+        .btn-whatsapp { display: inline-flex; align-items: center; justify-content: center; background-color: #25d366; color: white; text-decoration: none; padding: 0.85rem 1.5rem; border-radius: 30px; width: 100%; margin-top: 1.2rem; font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); transition: var(--transition); }
+        .btn-whatsapp:hover { background-color: #22bf5b; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+
+        @media (max-width: 1024px) {
+            .side-decoration { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .modal-content { grid-template-columns: 1fr; }
+            header h1 { font-size: 2rem; }
+            .search-submit-btn span { display: none; }
+            .search-submit-btn { padding: 0.65rem 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- DECORACIONES LATERALES -->
+    <div class="side-decoration side-left">
+        <div class="side-item">Glow</div>
+        <div class="side-item">Beauty</div>
+        <div class="side-item">Skincare</div>
+    </div>
+    <div class="side-decoration side-right">
+        <div class="side-item">Exclusivo</div>
+        <div class="side-item">Cosmética</div>
+        <div class="side-item">Elegance</div>
+    </div>
+
+    <div class="top-bar">
+        <div class="whatsapp-line">✨ REALIZA TU PEDIDO POR <a href="https://wa.me/5493886441487" target="_blank">WHATSAPP</a> ✨</div>
+        <div class="transfer-line">💳 ACEPTAMOS TRANSFERENCIAS</div>
+    </div>
+
+    <header>
+        <h1>Glow & Beauty</h1>
+        <p>Catálogo exclusivo de cosmética y cuidado personal</p>
+    </header>
+
+    <div class="container">
+        <!-- BUSCADOR SOFISTICADO Y ACTUAL -->
+        <div class="search-container">
+            <div class="search-wrapper">
+                <div class="search-icon-box">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar productos o categorías..." oninput="filtrarProductos()">
+                <div class="search-actions">
+                    <button class="clear-search-btn" onclick="limpiarBuscador()" title="Limpiar búsqueda">&times;</button>
+                    <button class="search-submit-btn" onclick="filtrarProductos()">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <span>Buscar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FILTROS DE CATEGORÍA -->
+        <div class="categories-filter" id="categoriesFilter">
+            <button class="filter-btn active" onclick="filtrarPorCategoria('Todos', this)">Todos</button>
+            <button class="filter-btn" onclick="filtrarPorCategoria('Maquillaje', this)">Maquillaje</button>
+            <button class="filter-btn" onclick="filtrarPorCategoria('Cuidado Facial', this)">Cuidado Facial</button>
+            <button class="filter-btn" onclick="filtrarPorCategoria('Bienestar', this)">Bienestar</button>
+            <button class="filter-btn" onclick="filtrarPorCategoria('Pestañas & Mirada', this)">Pestañas & Mirada</button>
+        </div>
+
+        <div class="grid-productos" id="gridProductos"></div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modalOverlay" onclick="cerrarModalAfuera(event)">
+        <div class="modal-container">
+            <button class="close-btn" onclick="cerrarModal()">&times;</button>
+            <div class="modal-content">
+                <div class="modal-gallery">
+                    <img id="mainImg" class="main-img" src="" alt="Foto">
+                    <div class="thumbnails-container" id="thumbsContainer"></div>
+                </div>
+                <div class="modal-info">
+                    <span id="modalCategoria" style="font-size: 0.72rem; text-transform: uppercase; color: var(--primary); font-weight: 600; letter-spacing: 1px;"></span>
+                    <h2 id="modalTitulo" style="font-family: 'Playfair Display', serif; font-size: 1.6rem; margin: 0.3rem 0 0.6rem 0; color: var(--text-dark);"></h2>
+                    <div id="modalPrecio" class="modal-precio"></div>
+                    <div id="modalDetalles" style="font-size: 0.86rem; color: #666; line-height: 1.6; white-space: pre-line; margin-bottom: 1.2rem;"></div>
+                    <a href="#" id="modalBtnWhatsapp" class="btn-whatsapp" target="_blank">Consultar por WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const NUMERO_WHATSAPP = "5493886441487";
+        let categoriaActiva = "Todos";
+
+        const productos = [
+            {
+                categoria: "Maquillaje",
+                titulo: "Delineador",
+                precio: "$1.500",
+                descripcion: "Logra un trazo preciso y definido para una mirada inolvidable.",
+                detalles: "✨ Delineador de alta pigmentación con punta de alta precisión para un acabado profesional.\n\n👁️ De secado rápido y larga duración, ideal para crear desde delineados naturales hasta estilos más dramáticos y audaces con facilidad.",
+                badge: "Nuevo",
+                fotos: ["https://i.ibb.co/3ywf3gxt/DELINEADOR.jpg"]
+            },
+            {
+                categoria: "Cuidado Facial",
+                titulo: "Kit para Skincare",
+                precio: "$5.000",
+                descripcion: "Todo lo que necesitas para una rutina de cuidado completa y revitalizante.",
+                detalles: "✨ Un set esencial diseñado para limpiar, nutrir y renovar tu piel en cada paso.\n\n🌿 Incluye productos seleccionados para mantener tu rostro saludable, hidratado y radiante. El regalo perfecto para ti o alguien especial.",
+                badge: "Nuevo",
+                fotos: ["https://i.ibb.co/Y7LCm8t8/KIT-PARA-SKINCARE.jpg"]
+            },
+            {
+                categoria: "Maquillaje",
+                titulo: "Delineador de Labios",
+                precio: "$1.500",
+                descripcion: "Define y dale volumen a tus labios con una precisión impecable.",
+                detalles: "✨ Delineador de textura suave y cremosa que permite trazos definidos y uniformes.\n\n💄 Ideal para resaltar el contorno de tus labios, evitar que el labial se corra y lograr un acabado profesional y duradero.",
+                fotos: ["https://i.ibb.co/5ytbGLz/DELINEADOR-DE-LABIOS.jpg"]
+            },
+            {
+                categoria: "Bienestar",
+                titulo: "Aromatizador",
+                precio: "$3.600",
+                descripcion: "Transforma tu espacio en un refugio de calma con fragancias envolventes.",
+                detalles: "✨ Aromatizador de ambiente diseñado para neutralizar olores y perfumar suavemente cada rincón de tu hogar.\n\n🍃 Ideal para crear una atmósfera relajante y acogedora. Disfruta de un aroma duradero que eleva el bienestar de cualquier habitación.",
+                fotos: ["https://i.ibb.co/Cp85PGYG/AROMATIZADOR.jpg", "https://i.ibb.co/mC2jSYPN/AROMATIZADOR-2.jpg"]
+            },
+            {
+                categoria: "Maquillaje",
+                titulo: "Rubor en Barra",
+                precio: "$4.000",
+                descripcion: "Un toque de color natural y saludable para resaltar tus mejillas al instante.",
+                detalles: "✨ Textura cremosa y de fácil aplicación que se funde con tu piel para un acabado fresco y luminoso.\n\n🎨 Fórmula altamente pigmentada, ideal para construir la intensidad que desees.",
+                fotos: ["https://i.ibb.co/ymhyvCDb/RUBOR-EN-BARRA.jpg"]
+            },
+            {
+                categoria: "Cuidado Facial",
+                titulo: "Mascara de Gel Facial",
+                precio: "$8.000",
+                descripcion: "Ideal para descongestionar, relajar e hidratar la piel del rostro.",
+                detalles: "✨ Ayuda a reducir la inflamación, atenuar ojeras y brindar un alivio refrescante inmediato.\n\n❄️ Uso en frío: Guardar en la heladera 15 minutos antes de aplicar.",
+                fotos: ["https://i.ibb.co/Zp5HhG1y/MASCARA-DE-GEL-FACIAL.jpg", "https://i.ibb.co/kgxCmK3k/MASCARA-DE-GEL-FACIAL-2.jpg"]
+            },
+            {
+                categoria: "Pestañas & Mirada",
+                titulo: "Pestañas Pelo por Pelo",
+                precio: "$10.000",
+                descripcion: "Mirada impactante y natural. Resalta tus ojos con volumen impecable.",
+                detalles: "✨ Logra una mirada sofisticada, intensa y súper natural sin necesidad de maquillaje diario.",
+                fotos: ["https://i.ibb.co/PZm6nTVr/PESTA-AS-PELO-POR-PELO.jpg", "https://i.ibb.co/gZ2sVknc/PESTA-AS-PELO-POR-PELO-2.jpg"]
+            },
+            {
+                categoria: "Pestañas & Mirada",
+                titulo: "Pestañas 3D",
+                precio: "$3.000",
+                descripcion: "Aporta mayor profundidad, textura y un volumen deslumbrante a tu mirada.",
+                detalles: "✨ Diseño tridimensional que aporta capas de densidad equilibrada para un efecto sofisticado pero liviano.",
+                fotos: ["https://i.ibb.co/ccKQ6RTG/PESTA-AS-3-D.jpg"]
+            },
+            {
+                categoria: "Pestañas & Mirada",
+                titulo: "Pestañas 6D",
+                precio: "$2.000",
+                descripcion: "Máximo volumen y dramatismo para una mirada profunda y súper llamativa.",
+                detalles: "✨ Abanicos de alta densidad diseñados para un acabado frondoso, ultra glamoroso y de alto impacto visual.",
+                fotos: ["https://i.ibb.co/TMK38D4s/PESTA-AS-6-D.jpg"]
+            },
+            {
+                categoria: "Cuidado Facial",
+                titulo: "Piedra Guasha",
+                precio: "$3.000",
+                descripcion: "Herramienta milenaria de masaje facial para mejorar la circulación y definir el óvalo del rostro.",
+                detalles: "✨ Estimula el drenaje linfático, ayuda a reducir la hinchazón matutina y promueve una piel más firme y luminosa.",
+                fotos: ["https://i.ibb.co/9H2QbLTd/PIEDRA-GUASHA.jpg", "https://i.ibb.co/k2SfVrBM/PIEDRA-GUASHA-2.jpg"]
+            },
+            {
+                categoria: "Cuidado Facial",
+                titulo: "Sérum",
+                precio: "$4.000",
+                descripcion: "Concentrado nutritivo de rápida absorción que revitaliza, hidrata profundamente y aporta luminosidad.",
+                detalles: "✨ Fórmula de alta potencia diseñada para penetrar en las capas más profundas de la piel, mejorando su textura y elasticidad.",
+                fotos: ["https://i.ibb.co/sdBwyjdJ/S-rum.jpg", "https://i.ibb.co/rRZ8CnQy/S-rum-2.jpg"]
+            },
+            {
+                categoria: "Cuidado Facial",
+                titulo: "Parche para Ojeras",
+                precio: "$700",
+                descripcion: "Tratamiento intensivo que revitaliza tu mirada, reduciendo ojeras y signos de fatiga al instante.",
+                detalles: "✨ Disfruta de un efecto refrescante y descongestivo que hidrata profundamente la zona delicada del contorno de ojos.",
+                fotos: ["https://i.ibb.co/qMJpGF9g/PARCHE-PARA-OJERAS.jpg"]
+            },
+            {
+                categoria: "Cuidado Facial",
+                titulo: "Mascarilla Facial",
+                precio: "$1.200",
+                descripcion: "Revitaliza tu piel con un boost de hidratación profunda y luminosidad instantánea.",
+                detalles: "✨ Mascarilla diseñada para limpiar impurezas, nutrir intensamente y devolverle a tu rostro su brillo natural.",
+                fotos: [
+                    "https://i.ibb.co/0j88gVg8/MASCARILLA-FACIAL-4.jpg",
+                    "https://i.ibb.co/rGv5dSKV/MASCARILLA-FACIAL-3.jpg",
+                    "https://i.ibb.co/DXXQhvk/MASCARILLA-FACIAL-2.jpg",
+                    "https://i.ibb.co/bjbwXjX4/MASCARILLA-FACIAL.jpg"
+                ]
+            },
+            {
+                categoria: "Cuidado Facial",
+                titulo: "Mascara de Gel para Ojos",
+                precio: "$6.000",
+                descripcion: "Alivio instantáneo para una mirada descansada, fresca y renovada.",
+                detalles: "✨ Diseñada específicamente para el contorno de ojos, ayuda a reducir bolsas, ojeras y signos de cansancio.",
+                fotos: ["https://i.ibb.co/JTKGM01/MASCARA-DE-GEL-PARA-OJOS.jpg", "https://i.ibb.co/kVk4ZX9L/MASCARA-DE-GEL-PARA-OJOS-2.jpg"]
+            },
+            {
+                categoria: "Cuidado Facial",
+                titulo: "Extractor de Comedores Facial",
+                precio: "$4.500",
+                descripcion: "Herramienta esencial para una limpieza profunda y una piel libre impurezas.",
+                detalles: "✨ Diseñado para remover puntos negros y espinillas de forma higiénica y precisa sin dañar la piel.",
+                fotos: ["https://i.ibb.co/B2H5V9pv/EXTRACTOR-DE-COMEDORES-FACIAL.jpg"]
+            }
+        ];
+
+        function renderizarProductos(productosAMostrar) {
+            const grid = document.getElementById('gridProductos');
+            grid.innerHTML = '';
+            
+            if (productosAMostrar.length === 0) {
+                grid.innerHTML = `<p style="grid-column: 1 / -1; text-align: center; color: #777; padding: 2rem;">No se encontraron productos.</p>`;
+                return;
+            }
+
+            productosAMostrar.forEach((p, index) => {
+                const indexOriginal = productos.indexOf(p);
+                const delay = index * 0.04;
+                grid.innerHTML += `
+                    <div class="card" style="animation-delay: ${delay}s;" onclick="abrirModal(${indexOriginal})">
+                        ${p.badge ? `<span class="badge">${p.badge}</span>` : ''}
+                        <div class="img-container"><img src="${p.fotos[0]}" alt="${p.titulo}"></div>
+                        <div class="card-body">
+                            <span class="card-categoria">${p.categoria}</span>
+                            <h2 class="card-titulo">${p.titulo}</h2>
+                            <p class="card-descripcion">${p.descripcion}</p>
+                            <div class="card-footer"><span class="card-precio">${p.precio}</span><button class="btn-ver">Ver detalle</button></div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function filtrarProductos() {
+            const texto = document.getElementById('searchInput').value.toLowerCase().trim();
+            aplicarFiltros(texto, categoriaActiva);
+        }
+
+        function limpiarBuscador() {
+            const input = document.getElementById('searchInput');
+            input.value = '';
+            filtrarProductos();
+            input.focus();
+        }
+
+        function filtrarPorCategoria(cat, elemento) {
+            categoriaActiva = cat;
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            elemento.classList.add('active');
+            
+            const texto = document.getElementById('searchInput').value.toLowerCase().trim();
+            aplicarFiltros(texto, categoriaActiva);
+        }
+
+        function aplicarFiltros(texto, categoria) {
+            const filtrados = productos.filter(p => {
+                const coincideTexto = p.titulo.toLowerCase().includes(texto) || 
+                                      p.categoria.toLowerCase().includes(texto) || 
+                                      p.descripcion.toLowerCase().includes(texto);
+                const coincideCat = (categoria === "Todos" || p.categoria === categoria);
+                return coincideTexto && coincideCat;
+            });
+            renderizarProductos(filtrados);
+        }
+
+        function abrirModal(index) {
+            const p = productos[index];
+            document.getElementById('modalCategoria').innerText = p.categoria;
+            document.getElementById('modalTitulo').innerText = p.titulo;
+            document.getElementById('modalPrecio').innerText = p.precio;
+            document.getElementById('modalDetalles').innerText = p.detalles;
+            document.getElementById('mainImg').src = p.fotos[0];
+            
+            const thumbs = document.getElementById('thumbsContainer');
+            thumbs.innerHTML = '';
+            
+            if(p.fotos.length > 1) {
+                p.fotos.forEach((f, i) => {
+                    const img = document.createElement('img');
+                    img.src = f; 
+                    img.className = 'thumb-img' + (i === 0 ? ' active' : '');
+                    img.onclick = () => { 
+                        document.getElementById('mainImg').src = f; 
+                        document.querySelectorAll('.thumb-img').forEach(t => t.classList.remove('active')); 
+                        img.classList.add('active'); 
+                    };
+                    thumbs.appendChild(img);
+                });
+            }
+            
+            const mensaje = encodeURIComponent(`Hola! Me interesa ${p.titulo} de ${p.precio}`);
+            document.getElementById('modalBtnWhatsapp').href = `https://wa.me/${NUMERO_WHATSAPP}?text=${mensaje}`;
+            document.getElementById('modalOverlay').classList.add('active');
+        }
+
+        function cerrarModal() { document.getElementById('modalOverlay').classList.remove('active'); }
+        function cerrarModalAfuera(e) { if (e.target.id === 'modalOverlay') cerrarModal(); }
+
+        renderizarProductos(productos);
+    </script>
+</body>
+</html>
