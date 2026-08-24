@@ -323,6 +323,14 @@
             transition: var(--transition);
         }
         .btn-add-cart:hover { background: var(--primary-light); }
+        
+        /* Estilo para botón de agotado */
+        .btn-add-cart.disabled {
+            background: #27272a;
+            color: var(--text-muted);
+            cursor: not-allowed;
+            pointer-events: none;
+        }
 
         /* CARRITO FLOTANTE (BOTÓN) */
         .cart-floating-btn {
@@ -662,9 +670,10 @@
             }
 
             lista.forEach(p => {
+                const esAgotado = p.badge && p.badge.toLowerCase() === "agotado";
                 grid.innerHTML += `
                     <div class="product-card">
-                        ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+                        ${p.badge ? `<span class="product-badge" style="${esAgotado ? 'background: var(--accent); color: #fff;' : ''}">${p.badge}</span>` : ''}
                         <div class="product-img-box" onclick="abrirModal(${p.id})">
                             <img src="${p.fotos[0]}" alt="${p.titulo}">
                         </div>
@@ -678,7 +687,9 @@
                                     <button class="btn-icon-action" onclick="abrirModal(${p.id})" title="Ver detalles">
                                         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                                     </button>
-                                    <button class="btn-add-cart" onclick="agregarAlCarrito(${p.id})">Agregar</button>
+                                    <button class="btn-add-cart ${esAgotado ? 'disabled' : ''}" ${esAgotado ? 'disabled' : ''} onclick="agregarAlCarrito(${p.id})">
+                                        ${esAgotado ? 'Agotado' : 'Agregar'}
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -716,6 +727,9 @@
         // CARRITO DE COMPRAS LÓGICA
         function agregarAlCarrito(id) {
             const producto = productos.find(p => p.id === id);
+            if (!producto || (producto.badge && producto.badge.toLowerCase() === "agotado")) {
+                return; // Protección extra para evitar agregar agotados
+            }
             const enCarrito = carrito.find(item => item.id === id);
             if (enCarrito) {
                 enCarrito.cantidad++;
@@ -804,6 +818,8 @@
         // MODAL DE DETALLE
         function abrirModal(id) {
             const p = productos.find(item => item.id === id);
+            const esAgotado = p.badge && p.badge.toLowerCase() === "agotado";
+
             document.getElementById('modalCat').innerText = p.categoria;
             document.getElementById('modalTitle').innerText = p.titulo;
             document.getElementById('modalPrice').innerText = p.precioStr;
@@ -818,10 +834,26 @@
                 });
             }
 
-            document.getElementById('modalAddCartBtn').onclick = () => {
-                agregarAlCarrito(p.id);
-                cerrarModal();
-            };
+            const modalBtn = document.getElementById('modalAddCartBtn');
+            modalBtn.style.padding = '0.8rem';
+            modalBtn.style.fontSize = '0.9rem';
+            modalBtn.style.width = '100%';
+            modalBtn.style.borderRadius = '99px';
+
+            if (esAgotado) {
+                modalBtn.innerText = 'Agotado';
+                modalBtn.className = 'btn-add-cart disabled';
+                modalBtn.disabled = true;
+                modalBtn.onclick = null;
+            } else {
+                modalBtn.innerText = 'Agregar al carrito';
+                modalBtn.className = 'btn-add-cart';
+                modalBtn.disabled = false;
+                modalBtn.onclick = () => {
+                    agregarAlCarrito(p.id);
+                    cerrarModal();
+                };
+            }
 
             document.getElementById('productModal').classList.add('active');
         }
