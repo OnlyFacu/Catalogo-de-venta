@@ -289,34 +289,12 @@
             font-weight: 700;
             color: var(--text-main);
         }
-        .actions-btns {
-            display: flex;
-            gap: 8px;
-        }
-        .btn-icon-action {
-            background: #25252a;
-            border: 1px solid var(--border-color);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-            color: var(--text-main);
-        }
-        .btn-icon-action:hover {
-            background: var(--primary);
-            color: #000;
-            border-color: var(--primary);
-        }
         .btn-add-cart {
             background: var(--primary);
             color: #000;
-            font-size: 0.75rem;
+            font-size: 0.78rem;
             font-weight: 700;
-            padding: 0.5rem 1rem;
+            padding: 0.55rem 1.2rem;
             border-radius: 20px;
             border: none;
             cursor: pointer;
@@ -519,13 +497,13 @@
             header h1 { font-size: 2.2rem; }
             .benefits-bar { display: none; }
             
-            /* NUEVO: Forzamos exactamente 2 columnas y achicamos un poco los espacios y fuentes de las tarjetas en celular */
+            /* Forzamos exactamente 2 columnas en celular */
             .products-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
             }
             .product-img-box {
-                height: 150px; /* Ajuste proporcional para que las fotos luzcan bien en 2 columnas */
+                height: 150px;
             }
             .product-content {
                 padding: 10px;
@@ -534,18 +512,14 @@
                 font-size: 0.95rem;
             }
             .product-desc {
-                display: none; /* Ocultamos la descripción larga en celular para que no estire la tarjeta de más */
+                display: none;
             }
             .product-price {
                 font-size: 0.95rem;
             }
             .btn-add-cart {
-                padding: 0.4rem 0.6rem;
-                font-size: 0.7rem;
-            }
-            .btn-icon-action {
-                width: 30px;
-                height: 30px;
+                padding: 0.45rem 0.8rem;
+                font-size: 0.72rem;
             }
         }
     </style>
@@ -665,14 +639,11 @@
         let carrito = [];
 
         const productos = [
-            // PRODUCTOS NUEVOS (Primeros en la lista)
             { id: 17, categoria: "Cuidado Facial", titulo: "Depiladora Facial", precioNum: 10000, precioStr: "$10.000", descripcion: "Elimina el vello facial de forma suave, rápida y sin irritaciones.", detalles: "✨ Práctica y portátil, ideal para dejar la piel lista para el maquillaje.", badge: "Agotado", fotos: ["https://i.ibb.co/v6Xrwhx3/DEPILADORA-FACIAL.jpg"] },
             { id: 18, categoria: "Cuidado Facial", titulo: "Esponja de Silicona", precioNum: 3000, precioStr: "$3.000", descripcion: "Limpieza profunda y exfoliación suave para una piel radiante.", detalles: "✨ Cerdas de silicona ultra suaves que remueven impurezas sin irritar.", badge: "Nuevo", fotos: ["https://i.ibb.co/BHgMt7QK/ESPONJA-DE-SILICONA.jpg"] },
             { id: 19, categoria: "Cuidado Facial", titulo: "Toallita Desmaquillante", precioNum: 1500, precioStr: "$1.500", descripcion: "Remueve el maquillaje de forma suave y eficiente.", detalles: "✨ Textura extrasuave y reutilizable, gentil con la piel.", badge: "Nuevo", fotos: ["https://i.ibb.co/YTX7ZMYc/TOALLITA-DESMAQUILLANTE.jpg"] },
             { id: 10, categoria: "Pestañas & Mirada", titulo: "Arqueador de Pestañas", precioNum: 2000, precioStr: "$2.000", descripcion: "Curvatura perfecta y duradera para realzar tus pestañas en segundos.", detalles: "✨ Diseñado ergonómicamente para curvar tus pestañas de forma natural y segura.", badge: "Nuevo", fotos: ["https://i.ibb.co/QFJRY33s/ARQUEADOR-DE-PESTA-AS.jpg"] },
             { id: 20, categoria: "Cuidado Facial", titulo: "Depiladora de Cristal", precioNum: 7000, precioStr: "$7.000", descripcion: "Exfoliación y depilación suave sin dolor para una piel ultrasuave.", detalles: "✨ Innovadora tecnología de nanocristales que elimina el vello y exfolia suavemente células muertas.\n\n🌿 Reutilizable y libre de irritaciones.", badge: "Nuevo", fotos: ["https://i.ibb.co/WW6nXWqH/DEPILADORA-DE-CRISTAL.jpg"] },
-            
-            // RESTO DE LOS PRODUCTOS
             { id: 1, categoria: "Maquillaje", titulo: "Delineador", precioNum: 1500, precioStr: "$1.500", descripcion: "Logra un trazo preciso y definido para una mirada inolvidable.", detalles: "✨ Delineador de alta pigmentación con punta de alta precisión para un acabado profesional.\n\n👁️ De secado rápido y larga duración.", fotos: ["https://i.ibb.co/3ywf3gxt/DELINEADOR.jpg", "https://i.ibb.co/ks4Hsds5/DELINEADOR-2.jpg"] },
             { id: 3, categoria: "Maquillaje", titulo: "Delineador de Labios", precioNum: 1500, precioStr: "$1.500", descripcion: "Define y dale volumen a tus labios con una precisión impecable.", detalles: "✨ Delineador de textura suave y cremosa que permite trazos definidos y uniformes.", fotos: ["https://i.ibb.co/5ytbGLz/DELINEADOR-DE-LABIOS.jpg"] },
             { id: 4, categoria: "Bienestar", titulo: "Aromatizador", precioNum: 3500, precioStr: "$3.500", descripcion: "Transforma tu espacio en un refugio de calma con fragancias envolventes.", detalles: "✨ Aromatizador de ambiente diseñado para neutralizar olores y perfumar suavemente cada rincón.", fotos: ["https://i.ibb.co/Cp85PGYG/AROMATIZADOR.jpg", "https://i.ibb.co/mC2jSYPN/AROMATIZADOR-2.jpg"] },
@@ -712,14 +683,9 @@
                             <p class="product-desc">${p.descripcion}</p>
                             <div class="product-footer">
                                 <span class="product-price">${p.precioStr}</span>
-                                <div class="actions-btns">
-                                    <button class="btn-icon-action" onclick="abrirModal(${p.id})" title="Ver detalles">
-                                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                                    </button>
-                                    <button class="btn-add-cart ${esAgotado ? 'disabled' : ''}" ${esAgotado ? 'disabled' : ''} onclick="agregarAlCarrito(${p.id})">
-                                        ${esAgotado ? 'Agotado' : 'Agregar'}
-                                    </button>
-                                </div>
+                                <button class="btn-add-cart ${esAgotado ? 'disabled' : ''}" ${esAgotado ? 'disabled' : ''} onclick="agregarAlCarrito(${p.id})">
+                                    ${esAgotado ? 'Agotado' : 'Agregar'}
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -753,7 +719,6 @@
             filtrarYOrdenar();
         }
 
-        // CARRITO DE COMPRAS LÓGICA
         function agregarAlCarrito(id) {
             const producto = productos.find(p => p.id === id);
             if (!producto || (producto.badge && producto.badge.toLowerCase() === "agotado")) {
@@ -767,7 +732,6 @@
             }
             actualizarContadorCarrito();
             renderizarCarritoItems();
-            abrirCarrito();
         }
 
         function actualizarContadorCarrito() {
@@ -844,7 +808,6 @@
             document.getElementById('whatsappCheckoutBtn').href = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
         }
 
-        // MODAL DE DETALLE
         function abrirModal(id) {
             const p = productos.find(item => item.id === id);
             const esAgotado = p.badge && p.badge.toLowerCase() === "agotado";
