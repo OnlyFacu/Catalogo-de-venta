@@ -518,6 +518,35 @@
             .modal-container { grid-template-columns: 1fr; max-height: 90vh; overflow-y: auto; }
             header h1 { font-size: 2.2rem; }
             .benefits-bar { display: none; }
+            
+            /* NUEVO: Forzamos exactamente 2 columnas y achicamos un poco los espacios y fuentes de las tarjetas en celular */
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .product-img-box {
+                height: 150px; /* Ajuste proporcional para que las fotos luzcan bien en 2 columnas */
+            }
+            .product-content {
+                padding: 10px;
+            }
+            .product-title {
+                font-size: 0.95rem;
+            }
+            .product-desc {
+                display: none; /* Ocultamos la descripción larga en celular para que no estire la tarjeta de más */
+            }
+            .product-price {
+                font-size: 0.95rem;
+            }
+            .btn-add-cart {
+                padding: 0.4rem 0.6rem;
+                font-size: 0.7rem;
+            }
+            .btn-icon-action {
+                width: 30px;
+                height: 30px;
+            }
         }
     </style>
 </head>
@@ -673,7 +702,7 @@
                 const esAgotado = p.badge && p.badge.toLowerCase() === "agotado";
                 grid.innerHTML += `
                     <div class="product-card">
-                        ${p.badge ? `<span class="product-badge" style="${esAgotado ? 'background: var(--accent); color: #fff;' : ''}">${p.badge}</span>` : ''}
+                        ${p.badge ? `<span class="product-badge" style="${esAgotado ? 'background: var(--accent); color: var(--text-main);' : ''}">${p.badge}</span>` : ''}
                         <div class="product-img-box" onclick="abrirModal(${p.id})">
                             <img src="${p.fotos[0]}" alt="${p.titulo}">
                         </div>
@@ -728,7 +757,7 @@
         function agregarAlCarrito(id) {
             const producto = productos.find(p => p.id === id);
             if (!producto || (producto.badge && producto.badge.toLowerCase() === "agotado")) {
-                return; // Protección extra para evitar agregar agotados
+                return; 
             }
             const enCarrito = carrito.find(item => item.id === id);
             if (enCarrito) {
