@@ -13,15 +13,15 @@ const productos = [
   { id: 208, categoria: "Maquillaje", titulo: "CORRECTOR 4 ANGEL", precioNum: 3000, precioStr: "$3.000", descripcion: "Corrector 4 Angel de alta cobertura y larga duración.", detalles: "✨ Ideal para perfilar y corregir imperfecciones con precisión.", badge: "Nuevo", foto: "https://i.ibb.co/G3GbXtfw/CORRECTOR-4-ANGEL-3000.jpg" },
   { id: 209, categoria: "Maquillaje", titulo: "ILUMINADOR", precioNum: 2500, precioStr: "$2.500", descripcion: "Iluminador en polvo para aportar un brillo radiante y destellos de luz a tu rostro.", detalles: "✨ Realza tus pómulos y puntos clave de la cara al instante.", badge: "Nuevo", foto: "https://i.ibb.co/vxs9pWYj/ILUMINADOR-2500.jpg" },
   { id: 210, categoria: "Maquillaje", titulo: "LABIAL TEI", precioNum: 2000, precioStr: "$2.000", descripcion: "Labial Tei con color intenso y gran confort para tus labios.", detalles: "💋 Alta fijación y textura suave que no reseca.", badge: "Nuevo", foto: "https://i.ibb.co/gL5GHryf/LABIAL-TEI-2000.jpg" },
-  { id: 211, categoria: "Accesorios", titulo: "PORTA COSMETICO", precioNum: 5000, precioStr: "$5.000", descripcion: "Práctico porta cosmético para llevar todo tu maquillaje ordenado y seguro.", detalles: "✨ Material resistente y amplio espacio interior.", badge: "Agotado", foto: "https://i.ibb.co/jvtqSRw8/PORTA-COSMETICO-5000.jpg" },
+  { id: 211, categoria: "Accesorios", titulo: "PORTA COSMETICO", precioNum: 5000, precioStr: "$5.000", descripcion: "Práctico porta cosmético para llevar todo tu maquillaje ordenado y seguro.", details: "✨ Material resistente y amplio espacio interior.", badge: "Agotado", foto: "https://i.ibb.co/jvtqSRw8/PORTA-COSMETICO-5000.jpg" },
   { id: 212, categoria: "Accesorios", titulo: "SET PARA PEINADO", precioNum: 1000, precioStr: "$1.000", descripcion: "Set esencial para peinar y estilizar tu cabello fácilmente.", detalles: "✨ Ideal para llevar en la cartera y hacer retoques rápidos.", badge: "Nuevo", foto: "https://i.ibb.co/Psk46yQW/SET-PARA-PEINADO-1000.jpg" },
   { id: 213, categoria: "Maquillaje", titulo: "PALETA ARTISTICA", precioNum: 4500, precioStr: "$4.500", descripcion: "Paleta artística con gran variedad de colores para looks creativos y audaces.", detalles: "✨ Pigmentos intensos y de fácil combinación.", badge: "Agotado", foto: "https://i.ibb.co/1fQGjqSb/PALETA-ARTISTICA-4500.jpg" },
   { id: 214, categoria: "Maquillaje", titulo: "MAQUILLAJE ARTISTICO", precioNum: 4500, precioStr: "$4.500", descripcion: "Maquillaje artístico versátil para diseños creativos y originales.", detalles: "✨ Textura suave y segura para la piel.", badge: "Agotado", foto: "https://i.ibb.co/dwzd34Kw/MAQUILLAJE-ARTISTICO-4500.jpg" },
   { id: 215, categoria: "Bienestar", titulo: "PERFUME KUROMI", precioNum: 3000, precioStr: "$3.000", descripcion: "Fragancia adorable y duradera en formato compacto ideal para regalar o llevar con vos.", details: "🌸 Aroma tierno y fresco que perdura por horas.", badge: "Nuevo", foto: "https://i.ibb.co/6cDKwSzQ/PERFUME-KUROMI-3000.jpg" },
-  { id: 216, categoria: "Cuidado Facial", titulo: "MASCARA REFRESCANTE PARA ROSTRO", precioNum: 7000, precioStr: "$7.000", descripcion: "Máscara refrescante para descongestionar, relajar y revitalizar la piel del rostro.", detalles: "✨ Alivio inmediato y sensación de frescura profunda.", badge: "Nuevo", foto: "https://i.ibb.co/JRDj0JYn/MASCARA-REFRESCANTE-PARA-ROSTRO-7000.jpg" },
+  { id: 216, categoria: "Cuidado Facial", titulo: "MASCARA REFRESCANTE PARA ROSTRO", precioNum: 7000, precioStr: "$7.000", descripcion: "Máscara refrescante para descongestionar, relajar y revitalizar la piel del rostro.", details: "✨ Alivio inmediato y sensación de frescura profunda.", badge: "Nuevo", foto: "https://i.ibb.co/JRDj0JYn/MASCARA-REFRESCANTE-PARA-ROSTRO-7000.jpg" },
   { id: 217, categoria: "Cuidado Facial", titulo: "MASCARILLA FACIAL", precioNum: 1000, precioStr: "$1.000", descripcion: "Mascarilla facial nutritiva para limpiar impurezas y devolverle la luminosidad a tu piel.", details: "🌿 Ideal para un momento de relax en tu rutina de skincare.", badge: "Nuevo", foto: "https://i.ibb.co/G4wq0fyP/MASCARILLA-FACIAL-1000.jpg" },
-  { id: 101, categoria: "Accesorios", titulo: "Billetera", precioNum: 6500, precioStr: "$6.500", descripcion: "Billetera compacta y funcional, ideal para llevar tus tarjetas y efectivo organizados con estilo.", detalles: "✨ Excelente diseño y materiales resistentes para el uso diario.\n\n👜 Tamaño cómodo para llevar en cualquier cartera o bolso.", badge: "Nuevo", foto: "https://i.ibb.co/273G0YvW/BILLETERA-6500.jpg" },
-  { id: 102, categoria: "Accesorios", titulo: "Billetera", precioNum: 6500, precioStr: "$6.500", descripcion: "Billetera práctica con múltiples compartimentos para mantener todo en orden.", detalles: "✨ Terminaciones cuidadas y diseño versátil que combina con todo.", badge: "Nuevo", foto: "https://i.ibb.co/Z1KrFGFC/BILLETERA2-6500.jpg" },
+  { id: 101, categoria: "Accesorios", titulo: "Billetera", precioNum: 6500, precioStr: "$6.500", descripcion: "Billetera compacta y funcional, ideal para llevar tus tarjetas y efectivo organizados con estilo.", details: "✨ Excelente diseño y materiales resistentes para el uso diario.\n\n👜 Tamaño cómodo para llevar en cualquier cartera o bolso.", badge: "Nuevo", foto: "https://i.ibb.co/273G0YvW/BILLETERA-6500.jpg" },
+  { id: 102, categoria: "Accesorios", titulo: "Billetera", precioNum: 6500, precioStr: "$6.500", descripcion: "Billetera práctica con múltiples compartimentos para mantener todo en orden.", details: "✨ Terminaciones cuidadas y diseño versátil que combina con todo.", badge: "Nuevo", foto: "https://i.ibb.co/Z1KrFGFC/BILLETERA2-6500.jpg" },
   { id: 103, categoria: "Maquillaje", titulo: "Brillo Labial", precioNum: 1500, precioStr: "$1.500", descripcion: "Brillo labial que aporta un acabado luminoso, hidratación y volumen natural a tus labios.", details: "💋 Textura ligera y confortable sin sensación pegajosa.\n\n✨ Brillo de larga duración ideal para cualquier ocasión.", badge: "Nuevo", foto: "https://i.ibb.co/VY7hNQzN/BRILLO-LABIAL-1500.jpg" },
   { id: 104, categoria: "Accesorios", titulo: "Cartera", precioNum: 16500, precioStr: "$16.500", descripcion: "Cartera espaciosa y elegante, perfecta para acompañar tus salidas y rutina diaria.", details: "✨ Confección resistente con amplio espacio interior y detalles sofisticados.", badge: "Nuevo", foto: "https://i.ibb.co/dJcpCDY8/CARTERA-16500.jpg" },
   { id: 105, categoria: "Accesorios", titulo: "Cartera", precioNum: 16500, precioStr: "$16.500", descripcion: "Cartera urbana de diseño moderno para llevar todo lo que necesitas con comodidad.", details: "✨ Práctica, segura y con gran capacidad para el día a día.", badge: "Nuevo", foto: "https://i.ibb.co/pr16y81Z/CARTERA2-16500.jpg" },
@@ -33,7 +33,7 @@ const productos = [
   { id: 111, categoria: "Bienestar", titulo: "Perfume Hello Kitty", precioNum: 3000, precioStr: "$3.000", descripcion: "Fragancia dulce y encantadora en práctico formato compacto para llevar a todos lados.", details: "🌸 Aroma fresco y juvenil que perdura suavemente en tu piel.", badge: "Nuevo", foto: "https://i.ibb.co/zVxG88sR/PERFUME-HELLO-KITTY-3000.jpg" },
   { id: 71, categoria: "Bienestar", titulo: "Combo Día de la Madre", precioNum: 10000, precioStr: "$10.000", descripcion: "Especial Día de la Madre: Set completo de belleza y cuidado personal.", details: "💖 Incluye:\n• Delineador de ojos\n• Delineador de labios\n• Lip gloss Mely\n• Esponja difuminadora\n• Arqueador de pestañas\n• Mini espejo p/ cartera\n• Brocha difuminadora\n• Broche hawaiano\n• Lima de uñas\n• Mascarilla facial", badge: "Nuevo", foto: "https://i.ibb.co/Jw8yfHcn/COMBO-3.jpg" },
   { id: 72, categoria: "Bienestar", titulo: "Combo Día de la Madre", precioNum: 6000, precioStr: "$6.000", descripcion: "Especial Día de la Madre: Set compacto de belleza y accesorios.", details: "💖 Incluye:\n• Anotador\n• Lip gloss\n• Set fashion x5", badge: "Nuevo", foto: "https://i.ibb.co/dwKbbYMj/COMBO-4.jpg" },
-  { id: 70, categoria: "Pestañas & Mirada", titulo: "Gel de Cejas", precioNum: 2500, precioStr: "$2.500", descripcion: "Gel fijador transparente para peinar, definir y mantener tus cejas intactas todo el día.", details: "✨ Fórmula de fijación ligera y sin sensación pegajosa ni residuos blancos.\n\n👁️ Cepillo de alta precisión para peinar y dar forma pelo a pelo fácilmente.", badge: "Nuevo", foto: "https://i.ibb.co/pv43Bcrg/GEL-DE-CEJAS.jpg" },
+  { id: 70, categoria: "Pestañas & Mirada", titulo: "Gel de Cejas", precioNum: 2500, precioStr: "$2.500", descripcion: "Gel fijador transparente para peinar, definir y mantener tu cejas intactas todo el día.", details: "✨ Fórmula de fijación ligera y sin sensación pegajosa ni residuos blancos.\n\n👁️ Cepillo de alta precisión para peinar y dar forma pelo a pelo fácilmente.", badge: "Nuevo", foto: "https://i.ibb.co/pv43Bcrg/GEL-DE-CEJAS.jpg" },
   { id: 67, categoria: "Cuidado Facial", titulo: "Pañuelo Facial", precioNum: 1500, precioStr: "$1.500", descripcion: "Pañuelo facial delicado y suave, ideal para la limpieza y cuidado diario de tu rostro.", details: "✨ Textura ultra suave ideal para retirar restos de maquillaje o secar el rostro sin irritar.\n\n🌸 Cuida la piel de tu rostro dejándola fresca y limpia.", badge: "Nuevo", foto: "https://i.ibb.co/GfFt9110/Whats-App-Image-2026-09-15-at-14-18-21-2.jpg" },
   { id: 68, categoria: "Accesorios", titulo: "Toalla para Cabello", precioNum: 5000, precioStr: "$5.000", descripcion: "Toalla absorbente de microfibra diseñada para secar tu cabello de forma rápida y sin frizz.", details: "💇‍♀️ Reduce el encrespamiento y protege la fibra capilar durante el secado.\n\n✨ Diseño cómodo y ligero que se ajustifica perfectamente a la cabeza.", badge: "Nuevo", foto: "https://i.ibb.co/mVQLL6Q0/TOALLA-PARA-CABELLO.jpg" },
   { id: 69, categoria: "Accesorios", titulo: "Brocha para Rubor", precioNum: 3000, precioStr: "$3.000", descripcion: "Brocha angulada con cerdas suaves para una aplicación precisa y natural del rubor.", details: "✨ Permite difuminar e iluminar los pómulos resaltar los rasgos de tu rostro.\n\n💖 Cerdas delicadas de alta calidad para un acabado impecable.", badge: "Agotado", foto: "https://i.ibb.co/tP1wBWVQ/Whats-App-Image-2026-09-15-at-14-04-18-2.jpg" },
@@ -86,21 +86,70 @@ const productos = [
   { id: 19, categoria: "Cuidado Facial", titulo: "Toallita Desmaquillante Clásica", precioNum: 1500, precioStr: "$1.500", descripcion: "Remueve el maquillaje de forma suave y eficiente.", details: "✨ Textura extrasuave y reutilizable, gentil con la piel.", badge: "Agotado", foto: "https://i.ibb.co/YTX7ZMYc/TOALLITA-DESMAQUILLANTE.jpg" },
   { id: 10, categoria: "Pestañas & Mirada", titulo: "Arqueador de Pestañas", precioNum: 2000, precioStr: "$2.000", descripcion: "Curvatura perfecta y duradera para realzar tus pestañas en segundos.", details: "✨ Diseñado ergonómicamente para curvar tus pestañas de forma natural y segura.", foto: "https://i.ibb.co/QFJRY33s/ARQUEADOR-DE-PESTA-AS.jpg" },
   { id: 20, categoria: "Cuidado Facial", titulo: "Depiladora de Cristal", precioNum: 5000, precioStr: "$5.000", descripcion: "Exfoliación y depilación suave sin dolor para una piel ultrasuave.", details: "✨ Innovadora tecnología de nanocristales que elimina el vello y exfolia suavemente células muertas.\n\n🌿 Reutilizable y libre de irritaciones.", badge: "Nuevo", foto: "https://i.ibb.co/WW6nWWqH/DEPILADORA-DE-CRISTAL.jpg" },
-  { id: 1, categoria: "Maquillaje", titulo: "Delineador Clásico", precioNum: 1500, precioStr: "$1.500", descripcion: "Logra un trazo preciso y definido para una mirada inolvidable.", details: "✨ Delineador de alta pigmentación con punta de alta precisión para un acabado profesional.\n\n👁️ De secado rápido y larga duración.", foto: "https://i.ibb.co/3ywf3gxt/DELINEADOR.jpg" },
-  { id: 3, categoria: "Maquillaje", titulo: "Delineador de Labios", precioNum: 1500, precioStr: "$1.500", descripcion: "Define y dale volumen a tus labios con una precisión impecable.", details: "✨ Delineador de textura suave y cremosa que permite trazos definidos y uniformes.", foto: "https://i.ibb.co/5ytbGLz/DELINEADOR-DE-LABIOS.jpg" },
-  { id: 4, categoria: "Bienestar", titulo: "Aromatizador de Ambiente", precioNum: 3500, precioStr: "$3.500", descripcion: "Transforma tu espacio en un refugio de calma con fragancias envolventes.", details: "✨ Aromatizador de ambiente diseñado para neutralizar olores y perfumar suavemente cada rincón.", foto: "https://i.ibb.co/Cp85PGYG/AROMATIZADOR.jpg" },
+  { id: 1, categoria: "Maquillaje", titulo: "Delineador Clásico", precioNum: 1500, precioStr: "$1.500", descripcion: "Logra un trazo preciso y definido para una mirada inolvidable.", details: "✨ Delineador de alta pigmentación con punta de alta precisión para un acabado profesional.\n\n👁️ De secado rápido y larga duración.", badge: "Nuevo", foto: "https://i.ibb.co/3ywf3gxt/DELINEADOR.jpg" },
+  { id: 3, categoria: "Maquillaje", titulo: "Delineador de Labios", precioNum: 1500, precioStr: "$1.500", descripcion: "Define y dale volumen a tus labios con una precisión impecable.", details: "✨ Delineador de textura suave y cremosa que permite trazos definidos y uniformes.", badge: "Nuevo", foto: "https://i.ibb.co/5ytbGLz/DELINEADOR-DE-LABIOS.jpg" },
+  { id: 4, categoria: "Bienestar", titulo: "Aromatizador de Ambiente", precioNum: 3500, precioStr: "$3.500", descripcion: "Transforma tu espacio en un refugio de calma con fragancias envolventes.", details: "✨ Aromatizador de ambiente diseñado para neutralizar olores y perfumar suavemente cada rincón.", badge: "Nuevo", foto: "https://i.ibb.co/Cp85PGYG/AROMATIZADOR.jpg" },
   { id: 5, categoria: "Maquillaje", titulo: "Rubor en Barra", precioNum: 3500, precioStr: "$3.500", descripcion: "Un toque de color natural y saludable para resaltar tus mejillas al instante.", details: "✨ Textura cremosa y de fácil aplicación que se funde con tu piel para un acabado fresco.", foto: "https://i.ibb.co/ymhyvCDb/RUBOR-EN-BARRA.jpg" },
   { id: 6, categoria: "Cuidado Facial", titulo: "Mascara de Gel Facial", precioNum: 8000, precioStr: "$8.000", descripcion: "Ideal para descongestionar, relajar e hidratar la piel del rostro.", details: "✨ Ayuda a reducir la inflamación y atenuar ojeras con alivio refrescante inmediato.", badge: "Agotado", foto: "https://i.ibb.co/Zp5HhG1y/MASCARA-DE-GEL-FACIAL.jpg" },
-  { id: 7, categoria: "Pestañas & Mirada", titulo: "Pestañas Pelo por Pelo", precioNum: 8500, precioStr: "$8.500", descripcion: "Mirada impactante y natural. Resalta tus ojos con volumen impecable.", details: "✨ Logra una mirada sofisticada, intensa y súper natural sin necesidad de maquillaje diario.", foto: "https://i.ibb.co/PZm6nTVr/PESTA-AS-PELO-POR-PELO.jpg" },
-  { id: 8, categoria: "Pestañas & Mirada", titulo: "Pestañas 3D", precioNum: 3000, precioStr: "$3.000", descripcion: "Aporta mayor profundidad, textura y un volumen deslumbrante a tu mirada.", details: "✨ Diseño tridimensional que aporta capas de densidad equilibrada para un efecto liviano.", foto: "https://i.ibb.co/ccKQ6RTG/PESTA-AS-3-D.jpg" },
-  { id: 9, categoria: "Pestañas & Mirada", titulo: "Pestañas 6D", precioNum: 2000, precioStr: "$2.000", descripcion: "Máximo volumen y dramatismo para una mirada profunda y súper llamativa.", details: "✨ Abanicos de alta densidad diseñados para un acabado frondoso y ultra glamoroso.", foto: "https://i.ibb.co/TMK38D4s/PESTA-AS-6-D.jpg" },
-  { id: 11, categoria: "Cuidado Facial", titulo: "Piedra Guasha", precioNum: 3000, precioStr: "$3.000", descripcion: "Herramienta milenaria de masaje facial para mejorar la circulación.", details: "✨ Estimula el drenaje linfático y ayuda a reducir la hinchazón matutina.", foto: "https://i.ibb.co/9H2QbLTd/PIEDRA-GUASHA.jpg" },
-  { id: 12, categoria: "Cuidado Facial", titulo: "Sérum Facial", precioNum: 3500, precioStr: "$3.500", descripcion: "Concentrado nutritivo de rápida absorción que revitaliza e hidrata.", details: "✨ Fórmula de alta potencia diseñada para penetrar en las capas profundas de la piel.", foto: "https://i.ibb.co/sdBwyjdJ/S-rum.jpg" },
-  { id: 13, categoria: "Cuidado Facial", titulo: "Parche para Ojeras", precioNum: 700, precioStr: "$700", descripcion: "Tratamiento intensivo que revitaliza tu mirada al instante.", details: "✨ Efecto refrescante y descongestivo que hidrata la zona delicada del contorno.", foto: "https://i.ibb.co/qMJpGF9g/PARCHE-PARA-OJERAS.jpg" },
+  { id: 7, categoria: "Pestañas & Mirada", titulo: "Pestañas Pelo por Pelo", precioNum: 8500, precioStr: "$8.500", descripcion: "Mirada impactante y natural. Resalta tus ojos con volumen impecable.", details: "✨ Logra una mirada sofisticada, intensa y súper natural sin necesidad de maquillaje diario.", badge: "Nuevo", foto: "https://i.ibb.co/PZm6nTVr/PESTA-AS-PELO-POR-PELO.jpg" },
+  { id: 8, categoria: "Pestañas & Mirada", titulo: "Pestañas 3D", precioNum: 3000, precioStr: "$3.000", descripcion: "Aporta mayor profundidad, textura y un volumen deslumbrante a tu mirada.", details: "✨ Diseño tridimensional que aporta capas de densidad equilibrada para un efecto liviano.", badge: "Nuevo", foto: "https://i.ibb.co/ccKQ6RTG/PESTA-AS-3-D.jpg" },
+  { id: 9, categoria: "Pestañas & Mirada", titulo: "Pestañas 6D", precioNum: 2000, precioStr: "$2.000", descripcion: "Máximo volumen y dramatismo para una mirada profunda y súper llamativa.", details: "✨ Abanicos de alta densidad diseñados para un acabado frondoso y ultra glamoroso.", badge: "Nuevo", foto: "https://i.ibb.co/TMK38D4s/PESTA-AS-6-D.jpg" },
+  { id: 11, categoria: "Cuidado Facial", titulo: "Piedra Guasha", precioNum: 3000, precioStr: "$3.000", descripcion: "Herramienta milenaria de masaje facial para mejorar la circulación.", details: "✨ Estimula el drenaje linfático y ayuda a reducir la hinchazón matutina.", badge: "Nuevo", foto: "https://i.ibb.co/9H2QbLTd/PIEDRA-GUASHA.jpg" },
+  { id: 12, categoria: "Cuidado Facial", titulo: "Sérum Facial", precioNum: 3500, precioStr: "$3.500", descripcion: "Concentrado nutritivo de rápida absorción que revitaliza e hidrata.", details: "✨ Fórmula de alta potencia diseñada para penetrar en las capas profundas de la piel.", badge: "Nuevo", foto: "https://i.ibb.co/sdBwyjdJ/S-rum.jpg" },
+  { id: 13, categoria: "Cuidado Facial", titulo: "Parche para Ojeras", precioNum: 700, precioStr: "$700", descripcion: "Tratamiento intensivo que revitaliza tu mirada al instante.", details: "✨ Efecto refrescante y descongestivo que hidrata la zona delicada del contorno.", badge: "Nuevo", foto: "https://i.ibb.co/qMJpGF9g/PARCHE-PARA-OJERAS.jpg" },
   { id: 14, categoria: "Cuidado Facial", titulo: "Mascarilla Facial (Clásica)", precioNum: 1000, precioStr: "$1.000", descripcion: "Revitaliza tu piel con un boost de hidratación profunda.", details: "✨ Mascarilla diseñada para limpiar impurezas y devolverle el brillo natural.", badge: "Nuevo", foto: "https://i.ibb.co/0j88gVg8/MASCARILLA-FACIAL-4.jpg" },
-  { id: 15, categoria: "Cuidado Facial", titulo: "Mascara de Gel para Ojos", precioNum: 5000, precioStr: "$5.000", descripcion: "Alivio instantáneo para una mirada descansada y fresca.", details: "✨ Diseñada específicamente para reducir bolsas, ojeras y signos de cansancio.", foto: "https://i.ibb.co/JTKGM01/MASCARA-DE-GEL-PARA-OJOS.jpg" },
-  { id: 16, categoria: "Cuidado Facial", titulo: "Extractor de Comedores Facial", precioNum: 3500, precioStr: "$3.500", descripcion: "Herramienta esencial para una limpieza profunda sin impurezas.", details: "✨ Diseñado para remover puntos negros de forma higiénica y precisa.", foto: "https://i.ibb.co/B2H5V9pv/EXTRACTOR-DE-COMEDORES-FACIAL.jpg" }
+  { id: 15, categoria: "Cuidado Facial", titulo: "Mascara de Gel para Ojos", precioNum: 5000, precioStr: "$5.000", descripcion: "Alivio instantáneo para una mirada descansada y fresca.", details: "✨ Diseñada específicamente para reducir bolsas, ojeras y signos de cansancio.", badge: "Nuevo", foto: "https://i.ibb.co/JTKGM01/MASCARA-DE-GEL-PARA-OJOS.jpg" },
+  { id: 16, categoria: "Cuidado Facial", titulo: "Extractor de Comedores Facial", precioNum: 3500, precioStr: "$3.500", descripcion: "Herramienta esencial para una limpieza profunda sin impurezas.", details: "✨ Diseñado para remover puntos negros de forma higiénica y precisa.", badge: "Nuevo", foto: "https://i.ibb.co/B2H5V9pv/EXTRACTOR-DE-COMEDORES-FACIAL.jpg" }
 ];
+
+// Lógica del Reloj Contador (Próximo domingo a las 22:00 hs)
+function iniciarContadorDiaDeLaMadre() {
+  function obtenerProximoDomingo22Hs() {
+    const ahora = new Date();
+    const diaSemana = ahora.getDay();
+    let diasHastaDomingo = (7 - diaSemana) % 7;
+    const objetivo = new Date(ahora.getFullYear(), ahora.getMonth(), ahora.getDate() + diasHastaDomingo, 22, 0, 0);
+    
+    if (ahora.getTime() >= objetivo.getTime()) {
+      objetivo.setDate(objetivo.getDate() + 7);
+    }
+    return objetivo;
+  }
+
+  const fechaSorteo = obtenerProximoDomingo22Hs();
+
+  function actualizarReloj() {
+    const ahora = new Date().getTime();
+    const diferencia = fechaSorteo.getTime() - ahora;
+
+    if (diferencia <= 0) {
+      document.getElementById('motherCountdown').innerHTML = "<span style='color:var(--accent-rose);font-weight:700;'>¡Sorteo en Proceso! 🎉</span>";
+      return;
+    }
+
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+    document.getElementById('cdDays').innerText = String(dias).padStart(2, '0');
+    document.getElementById('cdHours').innerText = String(horas).padStart(2, '0');
+    document.getElementById('cdMinutes').innerText = String(minutos).padStart(2, '0');
+    document.getElementById('cdSeconds').innerText = String(segundos).padStart(2, '0');
+  }
+
+  actualizarReloj();
+  setInterval(actualizarReloj, 1000);
+}
+
+// Detectar Scroll para contraer o expandir el banner sin parpadeos
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) {
+    document.body.classList.add('scrolled');
+  } else if (window.scrollY < 30) {
+    document.body.classList.remove('scrolled');
+  }
+});
 
 function guardarCarritoLocalStorage() {
   try {
@@ -207,6 +256,7 @@ function renderizarCarritoItems() {
   if (carrito.length === 0) {
     container.innerHTML = `<p style="text-align:center;color:var(--text-muted);margin-top:3rem;">Tu carrito está vacío.</p>`;
     document.getElementById('cartTotalPrice').innerText = "$0";
+    actualizarInfoSorteo(0);
     return;
   }
 
@@ -229,7 +279,21 @@ function renderizarCarritoItems() {
       </div>
     `;
   });
+  
   document.getElementById('cartTotalPrice').innerText = `$${total.toLocaleString('es-AR')}`;
+  actualizarInfoSorteo(total);
+}
+
+function actualizarInfoSorteo(total) {
+  const raffleStatusText = document.getElementById('raffleStatusText');
+  if (!raffleStatusText) return;
+
+  if (total < 5000) {
+    const restante = 5000 - total;
+    raffleStatusText.innerHTML = `Sumá <strong>$${restante.toLocaleString('es-AR')}</strong> más para participar del <strong>Sorteo del Día de la Madre</strong> 🎁`;
+  } else {
+    raffleStatusText.innerHTML = `¡Felicitaciones! Tu compra participa con <strong>1 ticket</strong> para el Sorteo del Día de la Madre 🌸✨`;
+  }
 }
 
 function cambiarCantidad(id, cambio) {
@@ -262,11 +326,21 @@ function enviarPedidoWhatsApp(e) {
     alert("Tu carrito está vacío.");
     return;
   }
+  
+  let total = carrito.reduce((acc, i) => acc + (i.precioNum * i.cantidad), 0);
+
   let mensaje = "¡Hola! Me gustaría hacer el siguiente pedido:\n\n";
   carrito.forEach(i => {
     mensaje += `• ${i.cantidad}x ${i.titulo} (${i.precioStr})\n`;
   });
-  mensaje += "\n¡Muchas gracias!";
+  
+  mensaje += `\n*Total:* $${total.toLocaleString('es-AR')}`;
+  
+  if (total >= 5000) {
+    mensaje += `\n\n🌸 *Sorteo Día de la Madre:* ¡Participo con mi ticket para el sorteo! 🎉`;
+  }
+  
+  mensaje += "\n\n¡Muchas gracias!";
   document.getElementById('whatsappCheckoutBtn').href = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
 }
 
@@ -307,3 +381,4 @@ function cerrarModalAfuera(e) { if (e.target.id === 'productModal') cerrarModal(
 // Inicialización de la tienda
 cargarCarritoLocalStorage();
 filtrarProductos();
+iniciarContadorDiaDeLaMadre();
