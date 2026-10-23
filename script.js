@@ -84,7 +84,7 @@ const productos = [
   { id: 17, categoria: "Cuidado Facial", titulo: "Depiladora Facial Portátil", precioNum: 10000, precioStr: "$10.000", descripcion: "Elimina el vello facial de forma suave, rápida y sin irritaciones.", details: "✨ Práctica y portátil, ideal para dejar la piel lista para el maquillaje.", badge: "Nuevo", foto: "https://i.ibb.co/v6Xrwhx3/DEPILADORA-FACIAL.jpg" },
   { id: 18, categoria: "Cuidado Facial", titulo: "Esponja de Silicona", precioNum: 3000, precioStr: "$3.000", descripcion: "Limpieza profunda y exfoliación suave para una piel radiante.", details: "✨ Cerdas de silicona ultra suaves que remueven impurezas sin irritar.", foto: "https://i.ibb.co/BHgMt7QK/ESPONJA-DE-SILICONA.jpg" },
   { id: 19, categoria: "Cuidado Facial", titulo: "Toallita Desmaquillante Clásica", precioNum: 1500, precioStr: "$1.500", descripcion: "Remueve el maquillaje de forma suave y eficiente.", details: "✨ Textura extrasuave y reutilizable, gentil con la piel.", badge: "Agotado", foto: "https://i.ibb.co/YTX7ZMYc/TOALLITA-DESMAQUILLANTE.jpg" },
-  { id: 10, categoria: "Pestañas & Mirada", titulo: "Arqueador de Pestañas", precioNum: 2000, precioStr: "$2.000", descripcion: "Curvatura perfecta y duradera para realzar tus pestañas en segundos.", details: "✨ Diseñado ergonómicamente para curvar tus pestañas de forma natural y segura.", foto: "https://i.ibb.co/QFJRY33s/ARQUEADOR-DE-PESTA-AS.jpg" },
+  { id: 10, categoria: "Pestañas & Mirada", titulo: "Arqueador de Pestañas", precioNum: 2000, precioStr: "$2.000", descripcion: "Curvatura perfecta y duradera para realzar tu pestañas en segundos.", details: "✨ Diseñado ergonómicamente para curvar tus pestañas de forma natural y segura.", foto: "https://i.ibb.co/QFJRY33s/ARQUEADOR-DE-PESTA-AS.jpg" },
   { id: 20, categoria: "Cuidado Facial", titulo: "Depiladora de Cristal", precioNum: 5000, precioStr: "$5.000", descripcion: "Exfoliación y depilación suave sin dolor para una piel ultrasuave.", details: "✨ Innovadora tecnología de nanocristales que elimina el vello y exfolia suavemente células muertas.\n\n🌿 Reutilizable y libre de irritaciones.", badge: "Nuevo", foto: "https://i.ibb.co/WW6nWWqH/DEPILADORA-DE-CRISTAL.jpg" },
   { id: 1, categoria: "Maquillaje", titulo: "Delineador Clásico", precioNum: 1500, precioStr: "$1.500", descripcion: "Logra un trazo preciso y definido para una mirada inolvidable.", details: "✨ Delineador de alta pigmentación con punta de alta precisión para un acabado profesional.\n\n👁️ De secado rápido y larga duración.", badge: "Nuevo", foto: "https://i.ibb.co/3ywf3gxt/DELINEADOR.jpg" },
   { id: 3, categoria: "Maquillaje", titulo: "Delineador de Labios", precioNum: 1500, precioStr: "$1.500", descripcion: "Define y dale volumen a tus labios con una precisión impecable.", details: "✨ Delineador de textura suave y cremosa que permite trazos definidos y uniformes.", badge: "Nuevo", foto: "https://i.ibb.co/5ytbGLz/DELINEADOR-DE-LABIOS.jpg" },
@@ -101,55 +101,6 @@ const productos = [
   { id: 15, categoria: "Cuidado Facial", titulo: "Mascara de Gel para Ojos", precioNum: 5000, precioStr: "$5.000", descripcion: "Alivio instantáneo para una mirada descansada y fresca.", details: "✨ Diseñada específicamente para reducir bolsas, ojeras y signos de cansancio.", badge: "Nuevo", foto: "https://i.ibb.co/JTKGM01/MASCARA-DE-GEL-PARA-OJOS.jpg" },
   { id: 16, categoria: "Cuidado Facial", titulo: "Extractor de Comedores Facial", precioNum: 3500, precioStr: "$3.500", descripcion: "Herramienta esencial para una limpieza profunda sin impurezas.", details: "✨ Diseñado para remover puntos negros de forma higiénica y precisa.", badge: "Nuevo", foto: "https://i.ibb.co/B2H5V9pv/EXTRACTOR-DE-COMEDORES-FACIAL.jpg" }
 ];
-
-// Lógica del Reloj Contador (Próximo domingo a las 22:00 hs)
-function iniciarContadorDiaDeLaMadre() {
-  function obtenerProximoDomingo22Hs() {
-    const ahora = new Date();
-    const diaSemana = ahora.getDay();
-    let diasHastaDomingo = (7 - diaSemana) % 7;
-    const objetivo = new Date(ahora.getFullYear(), ahora.getMonth(), ahora.getDate() + diasHastaDomingo, 22, 0, 0);
-    
-    if (ahora.getTime() >= objetivo.getTime()) {
-      objetivo.setDate(objetivo.getDate() + 7);
-    }
-    return objetivo;
-  }
-
-  const fechaSorteo = obtenerProximoDomingo22Hs();
-
-  function actualizarReloj() {
-    const ahora = new Date().getTime();
-    const diferencia = fechaSorteo.getTime() - ahora;
-
-    if (diferencia <= 0) {
-      document.getElementById('motherCountdown').innerHTML = "<span style='color:var(--accent-rose);font-weight:700;'>¡Sorteo en Proceso! 🎉</span>";
-      return;
-    }
-
-    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
-
-    document.getElementById('cdDays').innerText = String(dias).padStart(2, '0');
-    document.getElementById('cdHours').innerText = String(horas).padStart(2, '0');
-    document.getElementById('cdMinutes').innerText = String(minutos).padStart(2, '0');
-    document.getElementById('cdSeconds').innerText = String(segundos).padStart(2, '0');
-  }
-
-  actualizarReloj();
-  setInterval(actualizarReloj, 1000);
-}
-
-// Detectar Scroll para contraer o expandir el banner sin parpadeos
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 100) {
-    document.body.classList.add('scrolled');
-  } else if (window.scrollY < 30) {
-    document.body.classList.remove('scrolled');
-  }
-});
 
 function guardarCarritoLocalStorage() {
   try {
@@ -256,7 +207,6 @@ function renderizarCarritoItems() {
   if (carrito.length === 0) {
     container.innerHTML = `<p style="text-align:center;color:var(--text-muted);margin-top:3rem;">Tu carrito está vacío.</p>`;
     document.getElementById('cartTotalPrice').innerText = "$0";
-    actualizarInfoSorteo(0);
     return;
   }
 
@@ -281,19 +231,6 @@ function renderizarCarritoItems() {
   });
   
   document.getElementById('cartTotalPrice').innerText = `$${total.toLocaleString('es-AR')}`;
-  actualizarInfoSorteo(total);
-}
-
-function actualizarInfoSorteo(total) {
-  const raffleStatusText = document.getElementById('raffleStatusText');
-  if (!raffleStatusText) return;
-
-  if (total < 5000) {
-    const restante = 5000 - total;
-    raffleStatusText.innerHTML = `Sumá <strong>$${restante.toLocaleString('es-AR')}</strong> más para participar del <strong>Sorteo del Día de la Madre</strong> 🎁`;
-  } else {
-    raffleStatusText.innerHTML = `¡Felicitaciones! Tu compra participa con <strong>1 ticket</strong> para el Sorteo del Día de la Madre 🌸✨`;
-  }
 }
 
 function cambiarCantidad(id, cambio) {
@@ -335,12 +272,8 @@ function enviarPedidoWhatsApp(e) {
   });
   
   mensaje += `\n*Total:* $${total.toLocaleString('es-AR')}`;
-  
-  if (total >= 5000) {
-    mensaje += `\n\n🌸 *Sorteo Día de la Madre:* ¡Participo con mi ticket para el sorteo! 🎉`;
-  }
-  
   mensaje += "\n\n¡Muchas gracias!";
+  
   document.getElementById('whatsappCheckoutBtn').href = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
 }
 
@@ -381,4 +314,3 @@ function cerrarModalAfuera(e) { if (e.target.id === 'productModal') cerrarModal(
 // Inicialización de la tienda
 cargarCarritoLocalStorage();
 filtrarProductos();
-iniciarContadorDiaDeLaMadre();
